@@ -1,0 +1,6 @@
+^function add, return int, param num1 int, param num2 int^
+Adds two integers ^get param 1^ and ^get param 2^ together. Returns ^get return^.
+^function parse, return string, param num float^
+Parses ^get param 1^ to a ^get return^. ^get function^ throws an error when it cannot convert ^get param 1^ to a ^get return^.
+^variable id int^
+Returns a unique user id.

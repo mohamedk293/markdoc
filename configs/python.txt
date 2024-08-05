@@ -1,0 +1,4 @@
+use_function_identifier: true
+function_identifier: def
+param_mode: colon
+return_format: arrow

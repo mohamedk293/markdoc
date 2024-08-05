@@ -1,0 +1,4 @@
+use_function_identifier: false
+function_identifier: fn
+param_mode: c-style
+return_format: arrow
