@@ -43,8 +43,8 @@ pub fn get_config_data(contents: &String) -> ConfigData {
     // fix for config files not being fully parsed: add a newline at end to fully parse!
     let mut new_contents = contents.clone();
     new_contents.push('\n');
-    
-    for character in contents.chars() {
+
+    for character in new_contents.chars() {
         if character == ' ' {
             continue;
         } else if character == '\n' {
