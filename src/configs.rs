@@ -39,6 +39,11 @@ pub fn get_config_data(contents: &String) -> ConfigData {
     // default values for our config data struct that we'll change over the following loop
     let mut new_config_data = ConfigData::new(false, String::from(""), ParamChoices::Colon, ReturnFormat::Default);
     let mut adding_to_token = true; // basically an on off switch for what to add to;
+
+    // fix for config files not being fully parsed: add a newline at end to fully parse!
+    let mut new_contents = contents.clone();
+    new_contents.push('\n');
+    
     for character in contents.chars() {
         if character == ' ' {
             continue;
