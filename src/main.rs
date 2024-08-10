@@ -5,15 +5,13 @@ use std::io::{stdin, Write};
 use configs::ParamChoices;
 mod configs;
 
-#[allow(dead_code)]
 struct Symbol {
-    keywords: Vec<String>,
-    index: usize
+    keywords: Vec<String>
 }
 
 impl Symbol {
-    fn new(keywords: Vec<String>, index: usize) -> Self {
-        Symbol {keywords: keywords, index: index}
+    fn new(keywords: Vec<String>) -> Self {
+        Symbol {keywords: keywords}
     }
 }
 
@@ -33,9 +31,8 @@ fn read_markdoc_contents(file_name: &String) -> String {
 fn search_for_keywords(contents: &String) -> Vec<Symbol> {
     let mut keywords: Vec<Symbol> = Vec::new();
     let mut scanning = false;
-    let mut current_symbol = Symbol::new(vec![], 0);
+    let mut current_symbol = Symbol::new(vec![]);
     let mut current_keyword = String::from("");
-    let mut current_index: usize = 0;
     for character in contents.chars() {
         if !scanning {
             if character == '^' {
@@ -49,8 +46,7 @@ fn search_for_keywords(contents: &String) -> Vec<Symbol> {
                     current_symbol.keywords.push(current_keyword);
                 }
                 keywords.push(current_symbol);
-                current_index += 1;
-                current_symbol = Symbol::new(vec![], current_index);
+                current_symbol = Symbol::new(vec![]);
                 current_keyword = String::from("");
             } else {
                 if character == ',' || character == ' ' {
